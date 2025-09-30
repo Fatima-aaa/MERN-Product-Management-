@@ -1,0 +1,135 @@
+/* Reset potential overflows */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;   /* ✅ Prevent horizontal scroll / grey space */
+  background: #f8fafc;
+}
+
+/* App Layout */
+.app-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header */
+.app-header {
+  background: #2563eb;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 100vw;          /* ✅ span full viewport width */
+  margin: 0;             /* ✅ no centering */
+  left: 0;
+  right: 0;
+  position: relative;    /* keeps it in normal flow */
+  box-sizing: border-box;
+}
+
+/* Main Layout */
+.app-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;    /* ✅ Keeps dashboard from stretching too wide */
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Form */
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.product-form input {
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-form button {
+  padding: 0.75rem;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.product-form button:hover {
+  background: #1e40af;
+}
+
+.message {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: green;
+}
+
+/* Table */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-sizing: border-box;
+}
+
+.product-table th,
+.product-table td {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.product-table th {
+  background: #f1f5f9;
+}
+
+.product-table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.no-data {
+  text-align: center;
+  color: #888;
+  padding: 1rem;
+}
+
+/* ✅ Responsive Fixes */
+@media (max-width: 900px) {
+  .app-main {
+    grid-template-columns: 1fr; /* Stack layout */
+    padding: 1rem;
+  }
+
+  .product-table {
+    display: block;
+    overflow-x: auto; /* ✅ Prevents overflow issues */
+    white-space: nowrap;
+  }
+}
